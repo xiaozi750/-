@@ -1,0 +1,22 @@
+数据库主从同步
+配置主数据库服务器:
+        1.启用binlog日志,重启服务
+            Vim /etc/my.cnf
+            添加server_id=id值  (从服务器需要开启)
+            打开log_bin=日志名  (主服务器需要开启)
+　          Systemctl restart mysqld（重启服务生效）
+        2.授权用户 
+　　　　 Mysql>grant replication slave on 授权库．表 to 授权登录用户名@”%” identified by “登录密码”;
+        3.查看binlog日志信息
+        Mysql>Show master status;
+配置从数据库服务器:
+        1.修改主配置文件,重启服务
+            Vim /etc/my.cnf
+            添加server_id=id值
+　          Systemctl restart mysqld
+　　　　  2.指定主服务器的信息
+ 		  　　　Mysql>Change master to master_host=”主库ip地址”, master_user=”主库授权用户”, master_password=”授权用户密码”,master_log_file=”主库日志文件名”,master_log_pos=日志偏移量
+　　　　  3.启动slave进程
+  			   Start slave;
+　　　　  4.查看slave状态
+           Show slave status\G;
