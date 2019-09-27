@@ -4,8 +4,8 @@
 需要安装的软件列表有: nginx
                   mariadb(数据库客户端软件) mariadb-server(数据库服务器软件) mariadb-devel(其他客户端软件的依赖包)
                   php(解释器)   php-fpm(进程管理器服务)  php-mysql(PHP的数据库扩展包)
-1.使用yum安装基础依赖包
-yum -y install gcc openssl-devel pcre-devel
+1.使用yum安装基础依赖包zilb-de
+yum -y install gcc openssl-devel pcre-devel zlib-devel
 2.源码安装Nginx
 useradd -s /sbin/nologin nginx
 tar -xf nginx-1.12.2.tar.gz
