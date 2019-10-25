@@ -10,7 +10,7 @@ yum -y install gcc openssl-devel pcre-devel zlib-devel
 useradd -s /sbin/nologin nginx
 tar -xf nginx-1.12.2.tar.gz
 cd nginx-1.12.2
-./configure  --user=ngix  --group=nginx  --with-http_ssl_module
+./configure  --user=nginx  --group=nginx  --with-http_ssl_module
 make && make install
 3.安装MariaDB
 yum -y install mariadb  mariadb-server mariadb-devel
